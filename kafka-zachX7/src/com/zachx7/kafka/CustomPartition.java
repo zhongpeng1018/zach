@@ -6,14 +6,14 @@ import org.apache.kafka.clients.producer.Partitioner;
 import org.apache.kafka.common.Cluster;
 
 /**
- * ×î¼òµ¥µÄkafka×Ô¶¨Òå·ÖÇø 
- * @author zach - ÎüÆâ
+ * æœ€ç®€å•çš„kafkaè‡ªå®šä¹‰åˆ†åŒº 
+ * @author zach - å¸æŸ’
  *
  */
 public class CustomPartition implements Partitioner{
 
 	/**
-	 * ³õÊ¼»¯ÅäÖÃ
+	 * åˆå§‹åŒ–é…ç½®
 	 */
 	@Override
 	public void configure(Map<String, ?> configs) {
@@ -22,17 +22,17 @@ public class CustomPartition implements Partitioner{
 	}
 
 	/**
-	 * ¾ßÌå·ÖÇøÂß¼­
+	 * å…·ä½“åˆ†åŒºé€»è¾‘
 	 */
 	@Override
 	public int partition(String topic, Object key, byte[] keyBytes,
 			Object value, byte[] valueBytes, Cluster cluster) {
-		//ÕâÀï¾Í¼òµ¥µÄ¹Ì¶¨·ÖÇø
+		//è¿™é‡Œå°±ç®€å•çš„å›ºå®šåˆ†åŒº
 		return 2;
 	}
 
 	/**
-	 * ¹Ø±Õ×ÊÔ´
+	 * å…³é—­èµ„æº
 	 */
 	@Override
 	public void close() {

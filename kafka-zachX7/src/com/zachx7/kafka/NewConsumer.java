@@ -11,22 +11,22 @@ public class NewConsumer {
 
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
-		// ÅäÖÃĞÅÏ¢
+		// é…ç½®ä¿¡æ¯
 		Properties props = new Properties();
 
-		// ÅäÖÃkafka·şÎñÆ÷µØÖ·
+		// é…ç½®kafkaæœåŠ¡å™¨åœ°å€
 		props.put("bootstrap.servers", "hadoop102:9092");
 
-		// ÅäÖÃÏû·ÑÕß×éID
+		// é…ç½®æ¶ˆè´¹è€…ç»„ID
 		props.put("group.id", "x7");
 
-		// ÊÇ·ñ¿ªÆô×Ô¶¯Ìá½»£¨offset£©
+		// æ˜¯å¦å¼€å¯è‡ªåŠ¨æäº¤ï¼ˆoffsetï¼‰
 		props.put("enable.auto.commit", "true");
 
-		// ¶à¾ÃÌá½»Ò»´Î
+		// å¤šä¹…æäº¤ä¸€æ¬¡
 		props.put("auto.commit.interval.ms", "1000");
 
-		// ĞòÁĞ»¯
+		// åºåˆ—åŒ–
 		props.put("key.deserializer",
 				"org.apache.kafka.common.serialization.StringDeserializer");
 		props.put("value.deserializer",

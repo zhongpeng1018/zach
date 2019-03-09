@@ -13,31 +13,31 @@ public class PartitionProducer {
 	public static void main(String[] args) {
 
 		Properties props = new Properties();
-		// ÅäÖÃkafka·şÎñÆ÷µØÖ·
+		// é…ç½®kafkaæœåŠ¡å™¨åœ°å€
 		props.put("bootstrap.servers", "hadoop102:9092");
-		// ÅäÖÃ»ØÓ¦
+		// é…ç½®å›åº”
 		props.put("acks", "all");
-		// ÅäÖÃÖØÁ¬´ÎÊı
+		// é…ç½®é‡è¿æ¬¡æ•°
 		props.put("retries", 0);
-		// Åú´¦Àí£¨ÔİÊ±Ã»É¶ÓÃ£©
+		// æ‰¹å¤„ç†ï¼ˆæš‚æ—¶æ²¡å•¥ç”¨ï¼‰
 		props.put("batch.size", 16384);
-		// ·¢ËÍ¼ä¸ô
+		// å‘é€é—´éš”
 		props.put("linger.ms", 1);
-		// »º³åÄÚ´æ´óĞ¡
+		// ç¼“å†²å†…å­˜å¤§å°
 		props.put("buffer.memory", 33554432);
-		// key value ĞòÁĞ»¯
+		// key value åºåˆ—åŒ–
 		props.put("key.serializer",
 				"org.apache.kafka.common.serialization.StringSerializer");
 		props.put("value.serializer",
 				"org.apache.kafka.common.serialization.StringSerializer");
-		//ÉèÖÃ×Ô¶¨Òå·ÖÇø
+		//è®¾ç½®è‡ªå®šä¹‰åˆ†åŒº
 		props.put("partitioner.class", "com.zachx7.kafka.CustomPartition");
 
 		Producer<String, String> producer = new KafkaProducer<>(props);
 		for (int i = 0; i < 100; i++)
 			producer.send(
 					new ProducerRecord<String, String>("zach2", Integer
-							.toString(i), "zach-ÎüÆâ" + "(" + i + ")"),
+							.toString(i), "zach-å¸æŸ’" + "(" + i + ")"),
 					new Callback() {
 
 						@Override
